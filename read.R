@@ -2,5 +2,5 @@
 
 library(arrow)
 
-df <- read_feather("statcast_pitch_swing_data_20240402_20240630.arrow")
+df <- read_feather("pitchswing.arrow")
 str(df)
