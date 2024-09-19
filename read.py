@@ -1,12 +1,12 @@
-## Install package `pyarrow` if not already installed
+## Install package `polars` if not already installed
 
-import pyarrow as pa
-import pyarrow.parquet as pq
+import polars as pl
 
 ## Read the arrow file into a Table
-table = pa.ipc.RecordBatchFileReader('pitchswing.arrow')
-
-## To convert the table to a Pandas DataFrame (if needed):
-df = table.read_all().to_pandas()
-
+ad = 'pitchswing.arrow'
+df = pl.read_ipc(ad, use_pyarrow = True)
 df.describe()
+
+## Convert polar dataframe to pandas dataframe
+pdf = df.to_pandas()
+pdf.describe()
